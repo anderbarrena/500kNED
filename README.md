@@ -8,13 +8,11 @@ data in the main folder.
 
 ============================== **Bash Scripts** ============================
 
- ······························ Main ···································
-
+ ************************************************************************
  **00-do.all.sh**: runs sequentially all scripts bellow to reproduce the
  experiments in "Learning text representations for 500K classification
  tasks on Named Entity Disambiguation" paper.
-
- ·······································································
+ ************************************************************************
 
  **00-do.gather.sh**: the script creates the training input files for the
  "Word Expert Models" tested on the paper, around 6K mentions (x2 for
@@ -57,8 +55,7 @@ data in the main folder.
  against the gold standard. Eval results are stored in results/
  folder.
 
-========================================================================
-
+============================================================================
 
 ============================== **Perl Scripts** ============================
 
@@ -71,7 +68,7 @@ data in the main folder.
  **m@th.mxr.pl**: Perl script to mix the results of the "Word Expert
  Models" (original and augmented versions)
 
-========================================================================
+============================================================================
 
 ============================== **Pytorch Scripts** =========================
 
@@ -94,7 +91,7 @@ data in the main folder.
  Single model LSTM pytorch code:
   - %lstm.py
 
-========================================================================
+============================================================================
 
 ============================== **Folders** =================================
 
@@ -126,4 +123,4 @@ data in the main folder.
     train/mentions/ folder
   - test: debuggin and input files for test
 
-========================================================================
+============================================================================
