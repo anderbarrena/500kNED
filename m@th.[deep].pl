@@ -80,6 +80,8 @@ sub init
     $tag .= ".orig" unless $AUGMENTED;
     $tag .= ".aug" if $AUGMENTED;
     $path = "$PATH" if $PATH;
+    mkdir $path."results/";
+    mkdir $path."debug/";
     mkdir $path."ssv/";
     mkdir $path."ssv/train/" if $COLLECT || $CLUSTER;
     mkdir $path."ssv/train/entities/" if $COLLECT;

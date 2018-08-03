@@ -40,6 +40,10 @@ data in the main folder.
  are stored in m@ths/ and debug files in ssv/train/ and
  ssv/test/. Output files are stored in m@th/.
 
+ **00-do.m@th+.lstm.SingleModel.sh**: the script trains the LSTM
+ Single model. Models are stored in m@ths/ and debug files in
+ ssv/train/. Output files are stored in m@th/.
+
  **00-do.m@th+.transferLstm.sh**: the script trains and tests the
  transferLSTM Word Expert model. Only for the mentions occurring in
  test datasets (Aidatesta, Aidatestb, Tac2010test, Tac2011test and
@@ -108,8 +112,7 @@ data in the main folder.
  **source**: Contains preprocessed Wikipedia files
   - clusters: word to cluster files used in sparse experiments
   - dict: name to entity dictionaries
-  - entities: contains all the entity context files, one file per
-    entity
+  - entities: contains entity context files, one file per entity
   - vectors: word vectors used for the continious and LSTM based
     experiments (word2vec)
 
