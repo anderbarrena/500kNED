@@ -6,7 +6,7 @@ Download data from:
 http://ixa2.si.ehu.es/500kNED-download/source.tar.gz and unzip the
 data in the main folder.
 
-============================== **Bash Scripts** ============================
+# **Bash Scripts**
 
  ************************************************************************
  **00-do.all.sh**: runs sequentially all scripts bellow to reproduce the
@@ -55,9 +55,7 @@ data in the main folder.
  against the gold standard. Eval results are stored in results/
  folder.
 
-============================================================================
-
-============================== **Perl Scripts** ============================
+# **Perl Scripts**
 
  **m@th.[deep].pl**: Perl script for preproccesing of the Wikipedia data,
  training and testing the "Word Expert Models" (or moths).
@@ -68,9 +66,7 @@ data in the main folder.
  **m@th.mxr.pl**: Perl script to mix the results of the "Word Expert
  Models" (original and augmented versions)
 
-============================================================================
-
-============================== **Pytorch Scripts** =========================
+# **Pytorch Scripts**
 
  Continious Bag of Words Word Expert pytorch code:
   - @cBoW.aug.py
@@ -91,9 +87,7 @@ data in the main folder.
  Single model LSTM pytorch code:
   - %lstm.py
 
-============================================================================
-
-============================== **Folders** =================================
+# **Folders**
 
  **debug**: Contains debugging information from scripts
 
@@ -122,5 +116,3 @@ data in the main folder.
   - train: debuggin files for training and input files in
     train/mentions/ folder
   - test: debuggin and input files for test
-
-============================================================================
