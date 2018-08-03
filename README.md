@@ -12,7 +12,7 @@ data in the main folder.
 
  ······························ Main ···································
 
- 00-do.all.sh: runs sequentially all scripts bellow to reproduce the
+ *00-do.all.sh*: runs sequentially all scripts bellow to reproduce the
  experiments in "Learning text representations for 500K classification
  tasks on Named Entity Disambiguation" paper.
 
