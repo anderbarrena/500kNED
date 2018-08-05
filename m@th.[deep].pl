@@ -23,7 +23,7 @@ my $round = "";
 my $window = 50;
 my $M = 151441649;
 my $tag = "";
-my $nn = "\@transfer.py";
+my $nn = "\@transferLstm.py";
 
 &init();
 if($OUT)
@@ -561,8 +561,8 @@ sub cluster
 	binmode STR, ":utf8";
 	foreach my $ent (keys %{$prior{$w}})
 	{
-	    # my @smooth = (0) x ($window*2);
-	    # print STR $kode{$w}{$ent}." "."@smooth\n";	    
+	    my @smooth = (0) x ($window*2);
+	    print STR $kode{$w}{$ent}." "."@smooth\n";	    
 	    my $file = &ePaths($ent).".bz2";
 	    next unless (-e $file);
 	    my @same = ();
@@ -712,7 +712,7 @@ sub loadE
     my ($file) = @_;
     warn "\t\t-> testing m\@ths <".basename($file)."> at --> ".localtime()."\n";
     my @lines = ();
-    my %erase = ();
+    # my %erase = ();
     open (I, "-|:encoding(UTF-8)", "bzcat $file") || die $! ;
     while (<I>) 
     {	
@@ -721,7 +721,7 @@ sub loadE
 	my $w = &getW($m,$mm,$hm);                                                
 	next if !defined($prior{$w});
 	next if scalar keys %{$prior{$w}} <= 1;
-	$erase{$w} = 1;
+	# $erase{$w} = 1;
 	my ($ssv,$m0th) = &mPaths($w);
 	my $ctx;
 	$ctx = &getAnchor($w_ctx,$w) unless $DOC; 
@@ -733,23 +733,23 @@ sub loadE
 	    my $context;
 	    $context = &order($c) unless $DOC;
 	    $context = &shuffleDoc($c) if $DOC;
-	    # @$context = (0) x ($window*2) if @$context eq 0;
-	    next if @$context eq 0;
-	    $erase{$w} = 0;
+	    @$context = (0) x ($window*2) if @$context eq 0;
+	    # next if @$context eq 0;
+	    # $erase{$w} = 0;
 	    print STR $id.":::".@$ctx." @$context\n";
 	}
 	close(STR)
     }
     close(I);
-    foreach my $w (keys %erase) 
-    {
-	if ($erase{$w} eq 1)
-	{
-	    my ($ssv,$m0th) = &mPaths($w);
-	    my $do = "rm ".$ssv;
-	    my $out = system("$do") if (-e $ssv);		
-	}
-    }
+    # foreach my $w (keys %erase) 
+    # {
+    # 	if ($erase{$w} eq 1)
+    # 	{
+    # 	    my ($ssv,$m0th) = &mPaths($w);
+    # 	    my $do = "rm ".$ssv;
+    # 	    my $out = system("$do") if (-e $ssv);		
+    # 	}
+    # }
 }
 
 sub testM0ths

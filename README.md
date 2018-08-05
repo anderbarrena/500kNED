@@ -1,4 +1,6 @@
 
+TODO: erase scratch from paths
+
 This repository provides code to replicate the experiments from
 "Learning text representations for 500K classification tasks on Named
 Entity Disambiguation" by Ander Barrena, Aitor Soroa and Eneko Agirre.
@@ -74,20 +76,16 @@ data in the main folder.
 # **Pytorch Scripts**
 
  Continious Bag of Words Word Expert pytorch code:			       
-  - @cBoW.aug.py 
-  - @cBoW.original.py
+  - @cBoW.py 
 
  LSTM Word Expert pytorch code:			       
-  - @lstm.aug.py
-  - @lstm.orig.py
+  - @lstm.py
 
  Sparse Bag of Words Word Expert pytorch code:			       
-  - @sBoW.aug.py
-  - @sBoW.original.py
+  - @sBoW.py
 
  Transfer LSTM Word Expert pytorch code:
-  - @transferLstm.aug.py
-  - @transferLstm.orig.py
+  - @transferLstm.py
 
  Single model LSTM pytorch code:
   - %lstm.py

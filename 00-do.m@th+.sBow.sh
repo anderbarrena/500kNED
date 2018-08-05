@@ -1,9 +1,9 @@
 #!/bin/bash
-exit 0
+# exit 0
 
 vector=source/clusters/wikipedia+.c3000.cls.bz2
 vtag=wikipedia+.c3000.cls
-nn='@sBoW.aug.py'
+nn='@sBoW.py'
 nntag='@sBoW.aug'
 
 for d in plato
@@ -19,7 +19,6 @@ do
     done
 done
 
-nn='@sBoW.orig.py'
 nntag='@sBoW.orig'
 
 for d in plato

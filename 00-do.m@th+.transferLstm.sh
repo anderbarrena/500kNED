@@ -1,9 +1,9 @@
 #!/bin/bash
-exit 0
+# exit 0
 
 vector=source/vectors/wikipedia+.d300.w2v.bz2
 vtag=wikipedia+.d300.w2v
-nn='@transferLstm.aug.py'
+nn='@transferLstm.py'
 nntag='@transferLstm.aug'
 
 for d in plato
@@ -19,7 +19,6 @@ do
     done
 done
 
-nn='@transferLstm.orig.py'
 nntag='@transferLstm.orig'
 
 for d in plato

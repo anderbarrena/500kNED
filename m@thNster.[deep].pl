@@ -700,7 +700,7 @@ sub loadE
 	my $w = &getW($m,$mm,$hm);                                                
 	next if !defined($aux_dict{$w});
 	next if scalar keys %{$aux_dict{$w}} <= 1;
-	$erase{$w} = 1;
+	# $erase{$w} = 1;
 	my ($ssv,$m0th) = &mPaths();
 	my $ctx;
 	$ctx = &getAnchor($w_ctx,$w) unless $DOC; 
@@ -712,23 +712,23 @@ sub loadE
 	    my $context;
 	    $context = &order($c) unless $DOC;
 	    $context = &shuffleDoc($c) if $DOC;
-	    # @$context = (0) x ($window*2) if @$context eq 0;
-	    next if @$context eq 0;
-	    $erase{$w} = 0;
+	    @$context = (0) x ($window*2) if @$context eq 0;
+	    # next if @$context eq 0;
+	    # $erase{$w} = 0;
 	    print STR $id.":::".@$ctx." @$context\n";
 	}
 	close(STR)
     }
     close(I);
-    foreach my $w (keys %erase) 
-    {
-    	if ($erase{$w} eq 1)
-    	{
-    	    my ($ssv,$m0th) = &mPaths($w);
-    	    my $do = "rm ".$ssv;
-    	    my $out = system("$do") if (-e $ssv);		
-    	}
-    }
+    # foreach my $w (keys %erase) 
+    # {
+    # 	if ($erase{$w} eq 1)
+    # 	{
+    # 	    my ($ssv,$m0th) = &mPaths($w);
+    # 	    my $do = "rm ".$ssv;
+    # 	    my $out = system("$do") if (-e $ssv);		
+    # 	}
+    # }
 }
 
 sub testM0ths
