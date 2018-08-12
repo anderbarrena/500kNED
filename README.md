@@ -11,7 +11,7 @@ Download data from:
   files.
 
   http://ixa2.si.ehu.es/500kNED-download/entities.tar.gz Unzip the
-  data in ssv/train/ folder. Contains all the prepocessed contexts for
+  data in ssv/train/ folder. Contains all the preprocessed contexts for
   all the entities in Wikipedia (06Nov2014 dump)
 
 # **Bash Scripts**
