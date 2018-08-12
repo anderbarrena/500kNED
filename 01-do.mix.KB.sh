@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir m@th/cmb
 for nn in wikipedia+.d300.w2v.@lstm #wikipedia+.d300.w2v.@cBoW wikipedia+.c3000.cls.@sBoW wikipedia+.d300.w2v.@transferLstm.noGrad wikipedia+.d300.w2v.@transferLstm
 do
     for data in aidatesta aidatestb
