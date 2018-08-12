@@ -22,7 +22,7 @@ parser.add_option("-r","--test",dest="testfile",
                   help="test ssv file",metavar="<test_file>")
 (options,args)=parser.parse_args()
 
-mothNster_path='/tartalo03/lexiko-semantika/EntityLinking/edl/NNets/m@thNsters/2014wiki_10occ.dict.w50.wikipedia+.d300.w2v.%lstm.512.e8.acc9.72'
+mothNster_path='m@ths/2014wiki_50occ.dict.w50.wikipedia+.d300.w2v.%LSTM.e5.acc14.83'
 
 fword=31
 lword=71

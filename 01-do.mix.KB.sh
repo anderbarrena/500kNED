@@ -1,5 +1,5 @@
 #!/bin/bash
-for nn in wikipedia+.d300.w2v.@transferLstm.noGrad wikipedia+.d300.w2v.@transferLstm #wikipedia+.d300.w2v.@lstm wikipedia+.d300.w2v.@transferLstm wikipedia+.c3000.cls.@sBoW wikipedia+.d300.w2v.@cBoW
+for nn in wikipedia+.d300.w2v.@lstm #wikipedia+.d300.w2v.@cBoW wikipedia+.c3000.cls.@sBoW wikipedia+.d300.w2v.@transferLstm.noGrad wikipedia+.d300.w2v.@transferLstm
 do
     for data in aidatesta aidatestb
     do 

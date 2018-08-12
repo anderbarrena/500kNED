@@ -1,7 +1,7 @@
 #!/bin/bash
 for data in aidatesta aidatestb tac2010test tac2011test tac2012test
 do 
-    for nn in wikipedia+.d300.w2v.@transferLstm.noGrad wikipedia+.d300.w2v.@transferLstm #wikipedia+.d300.w2v.@lstm wikipedia+.d300.w2v.@transferLstm wikipedia+.c3000.cls.@sBoW wikipedia+.d300.w2v.@cBoW
+    for nn in wikipedia+.d300.w2v.@lstm #wikipedia+.d300.w2v.@cBoW wikipedia+.c3000.cls.@sBoW wikipedia+.d300.w2v.@transferLstm.noGrad wikipedia+.d300.w2v.@transferLstm
     do
 	echo $nn
 	echo "sigle m@th models"
