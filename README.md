@@ -106,7 +106,8 @@ Download data from:
 
 # **Folders**
  
- Some of the folders will be created or filled during execution:
+ Some of the folders will be created or filled during previous script
+ executions:
 
   **debug**: Contains debugging information from scripts
 
