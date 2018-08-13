@@ -22,12 +22,13 @@ parser.add_option("-r","--test",dest="testfile",
                   help="test ssv file",metavar="<test_file>")
 (options,args)=parser.parse_args()
 
-mothNster_path='m@ths/2014wiki_50occ.dict.w50.wikipedia+.d300.w2v.%LSTM.e5.acc14.83'
+mothNster_path='m@ths/2014wiki_50occ.dict.w50.wikipedia+.d300.w2v.%LSTM.e6.acc15.34'
 
 fword=31
 lword=71
 num_layers=1
-dclasses=1066509
+# dclasses=1066509 #for 10occ
+dclasses=247415 #for 50occ
 lstm_hidden=2048
 feedf_hidden=256
 ctx_layer=512
@@ -37,7 +38,7 @@ dp=0.2
 min_epochs=10
 max_epochs=300
 sample=0.1
-gpuN=0
+gpuN=2
 sequence=40
 
 class DeepNet(torch.nn.Module):
@@ -141,15 +142,6 @@ if options.vectfile is not None:
     mothNster=DeepNet(vsize,lstm_hidden,feedf_hidden,ctx_layer,dclasses)
     mothNster.load_state_dict(torch.load(mothNster_path, map_location=lambda storage, location: storage))
     # mothNster.load_state_dict(torch.load(mothNster_path))
-    for name, param in mothNster.named_parameters():
-        if name == 'feedf.0.weight':
-            rep2h1 = param.data
-        if name == 'feedf.0.bias':
-            rep2h1b = param.data
-        if name == 'feedf.3.weight':
-            h12h2 = param.data
-        if name == 'feedf.3.bias':
-            h12h2b = param.data
 
     if torch.cuda.is_available():
         mothNster=mothNster.cuda()
@@ -213,13 +205,7 @@ if options.trainfile is not None:
 
         for r in [1,2,3]:
             nowT=datetime.datetime.now()
-            NNet=ShallowNet(vsize,feedf_hidden,classes)
-            NNet.shal[0].weight = torch.nn.Parameter(rep2h1)
-            NNet.shal[0].bias = torch.nn.Parameter(rep2h1b)
-            NNet.shal[0].require_grad=True # set to false to freeze weights 
-            NNet.shal[3].weight = torch.nn.Parameter(h12h2)
-            NNet.shal[3].bias = torch.nn.Parameter(h12h2b)
-            NNet.shal[3].require_grad=True # set to false to freeze weights
+            NNet=ShallowNet(ctx_layer,feedf_hidden,classes)
             loss_fn=torch.nn.CrossEntropyLoss()
             optimizer=torch.optim.Adam(NNet.parameters(),lr=ilr)
             if torch.cuda.is_available():
