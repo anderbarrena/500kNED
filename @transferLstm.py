@@ -22,7 +22,7 @@ parser.add_option("-r","--test",dest="testfile",
                   help="test ssv file",metavar="<test_file>")
 (options,args)=parser.parse_args()
 
-mothNster_path='m@ths/2014wiki_50occ.dict.w50.wikipedia+.d300.w2v.%LSTM.e6.acc15.34'
+mothNster_path='m@ths/2014wiki_50occ.dict.w50.wikipedia+.d300.w2v.%LSTM'
 
 fword=31
 lword=71
