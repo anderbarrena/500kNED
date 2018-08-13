@@ -122,10 +122,9 @@ Download data from:
 
  **results**: Contains the evaluation results
 
- **source**: Contains preprocessed Wikipedia files
+ **source**: Contains preprocessed Wikipedia files (http://ixa2.si.ehu.es/500kNED-download/source.tar.gz)
   - clusters: word to cluster files used in sparse experiments
   - dict: name to entity dictionaries
-  - entities: contains entity context files, one file per entity
   - vectors: word vectors used for the continious and LSTM based
     experiments (word2vec)
 
@@ -133,5 +132,6 @@ Download data from:
  the classifiers and some debugging information
 
   - train: debuggin files for training and input files in
-    train/mentions/ folder
+    train/mentions/ folder, and train/entities/ contains entity context files,
+    one file per entity (http://ixa2.si.ehu.es/500kNED-download/entities.tar.gz)
   - test: debuggin and input files for test
