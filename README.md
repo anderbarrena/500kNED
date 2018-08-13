@@ -86,6 +86,8 @@ Download data from:
  Models" (original and augmented versions)
 
 # **Pytorch Scripts**
+ The following pytorch scripts are used in **m@th.[deep].pl** and 
+ **m@thNster.[deep].pl** to train and test the word expert models.
 
  Continious Bag of Words Word Expert pytorch code:			       
   - @cBoW.py 
