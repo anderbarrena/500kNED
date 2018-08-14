@@ -216,7 +216,7 @@ if options.trainfile is not None:
                 else:
                     print("  epochs:",epoch+1,"loss:",lossD,"devAcc:",accD," ",round((nowE-prevE).total_seconds()/3600,1),"hours")
                     rounds+=1
-                if epoch+1>=min_epochs and rounds>=1:
+                if epoch+1>=min_epochs and rounds>=3:
                     break
 
             prevT=nowT
