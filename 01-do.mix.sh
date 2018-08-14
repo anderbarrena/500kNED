@@ -24,26 +24,6 @@ do
 	rm m@th/cmb/2014wiki_"$data"_peW."$nn".1
 	rm m@th/cmb/2014wiki_"$data"_peW."$nn".2
 	rm m@th/cmb/2014wiki_"$data"_peW."$nn".3
-
-	# echo "dual prior%m@th models"
-	# perl m@th.mxr.pl m@th/cmb/2014wiki_"$data"_peS.prior m@th/2014wiki_"$data"_peW."$nn".orig.1 > m@th/cmb/2014wiki_"$data"_peS-peW."$nn".1
-	# perl m@th.mxr.pl m@th/cmb/2014wiki_"$data"_peS.prior m@th/2014wiki_"$data"_peW."$nn".orig.2 > m@th/cmb/2014wiki_"$data"_peS-peW."$nn".2
-	# perl m@th.mxr.pl m@th/cmb/2014wiki_"$data"_peS.prior m@th/2014wiki_"$data"_peW."$nn".orig.3 > m@th/cmb/2014wiki_"$data"_peS-peW."$nn".3
-	# perl eval.pl -t 1 gs/"$data"_wiki2014.key m@th/cmb/2014wiki_"$data"_peS-peW."$nn".1 
-	# perl eval.pl -t 1 gs/"$data"_wiki2014.key m@th/cmb/2014wiki_"$data"_peS-peW."$nn".2 
-	# perl eval.pl -t 1 gs/"$data"_wiki2014.key m@th/cmb/2014wiki_"$data"_peS-peW."$nn".3
-	# rm m@th/cmb/2014wiki_"$data"_peS-peW."$nn".1
-	# rm m@th/cmb/2014wiki_"$data"_peS-peW."$nn".2
-	# rm m@th/cmb/2014wiki_"$data"_peS-peW."$nn".3
-	# perl m@th.mxr.pl m@th/cmb/2014wiki_"$data"_peS.prior m@th/2014wiki_"$data"_peW."$nn".aug.1 > m@th/cmb/2014wiki_"$data"_peS-peW."$nn".aug.1
-	# perl m@th.mxr.pl m@th/cmb/2014wiki_"$data"_peS.prior m@th/2014wiki_"$data"_peW."$nn".aug.2 > m@th/cmb/2014wiki_"$data"_peS-peW."$nn".aug.2
-	# perl m@th.mxr.pl m@th/cmb/2014wiki_"$data"_peS.prior m@th/2014wiki_"$data"_peW."$nn".aug.3 > m@th/cmb/2014wiki_"$data"_peS-peW."$nn".aug.3
-	# perl eval.pl -t 1 gs/"$data"_wiki2014.key m@th/cmb/2014wiki_"$data"_peS-peW."$nn".aug.1 
-	# perl eval.pl -t 1 gs/"$data"_wiki2014.key m@th/cmb/2014wiki_"$data"_peS-peW."$nn".aug.2 
-	# perl eval.pl -t 1 gs/"$data"_wiki2014.key m@th/cmb/2014wiki_"$data"_peS-peW."$nn".aug.3
-	# rm m@th/cmb/2014wiki_"$data"_peS-peW."$nn".aug.1
-	# rm m@th/cmb/2014wiki_"$data"_peS-peW."$nn".aug.2
-	# rm m@th/cmb/2014wiki_"$data"_peS-peW."$nn".aug.3
 	echo	
     done
 done
