@@ -84,6 +84,8 @@ Download data from:
 
  **m@th.mxr.pl**: Perl script to mix the results of the "Word Expert
  Models" (original and augmented versions)
+ 
+ **eval.pl**: Perl script to eval the system results.
 
 # **Pytorch Scripts**
  The following pytorch scripts are used in **m@th.[deep].pl** and 
@@ -114,6 +116,8 @@ Download data from:
  **ed**: Contains the preprocessed input and gold standard files from test
  data (Aidatesta, Aidatestb, Tac2010test, Tac2011test and Tac2012test
  datasets).
+ 
+ **gs**: Contains the gold standard files.
 
  **m@th**: Contains the output files of the system for each test dataset
 
