@@ -26,37 +26,29 @@ fword=31
 lword=71
 num_layers=1
 lstm_hidden=2048
-feedf_hidden=256
 repLayer=512
-batch=200
+batch=256
 ilr=1e-4
 dp=0.2
 min_epochs=5
 max_epochs=60
-sample=0.02
+sample=0.01
 sequence=40
-gpuN=2
+gpuN=1
 
 class DeepNet(torch.nn.Module):
-    def __init__(self,input_size,lstm_hidden_size,feedf_hidden_size,rep_size,num_classes):
+    def __init__(self,input_size,lstm_hidden_size,rep_size,num_classes):
         super(DeepNet,self).__init__()
         self.input_size=input_size
         self.lstm_hidden_size=lstm_hidden_size
-        self.feedf_hidden_size=feedf_hidden_size
         self.rep_size=rep_size
         self.lstm=torch.nn.LSTM(input_size,lstm_hidden_size,num_layers,dropout=dp,batch_first=True)
         self.projection=torch.nn.Linear(lstm_hidden_size,rep_size)
-        self.feedf = torch.nn.Sequential(
-            torch.nn.Linear(rep_size, feedf_hidden_size),
-            torch.nn.ReLU(),
-            torch.nn.Dropout(dp),
-            torch.nn.Linear(feedf_hidden_size, feedf_hidden_size),
-            torch.nn.ReLU(),
-            torch.nn.Linear(feedf_hidden_size,num_classes))
+        self.toclass=torch.nn.Linear(rep_size,num_classes)
     def forward(self,x):
         out,_=self.lstm(x)
         rep=self.projection(out[:,-1,:])
-        out=self.feedf(rep)
+        out=self.toclass(rep)
         return out,rep
 
 def to_var(x):
@@ -164,7 +156,7 @@ if options.trainfile is not None:
 
         for r in [1]:
             nowT=datetime.datetime.now()
-            NNet=DeepNet(vsize,lstm_hidden,feedf_hidden,repLayer,classes)
+            NNet=DeepNet(vsize,lstm_hidden,repLayer,classes)
             loss_fn=torch.nn.CrossEntropyLoss()
             optimizer=torch.optim.Adam(NNet.parameters(),lr=ilr)
             if torch.cuda.is_available():
@@ -206,7 +198,7 @@ if options.trainfile is not None:
                 accD=round(100*(float(correct)/(all)),2) 
                 prevE=nowE
                 nowE=datetime.datetime.now()
-                torch.save(NNet.state_dict(),m0th+'.e'+str(epoch+1)+'.acc'+str(accD))
+                # torch.save(NNet.state_dict(),m0th+'.e'+str(epoch+1)+'.acc'+str(accD))
                 if (accD_best<=accD):
                     print("  epochs:",epoch+1,"loss:",lossD,"devAcc:",accD," ",round((nowE-prevE).total_seconds()/3600,1),"hours <- best")
                     ep=epoch
@@ -216,7 +208,7 @@ if options.trainfile is not None:
                 else:
                     print("  epochs:",epoch+1,"loss:",lossD,"devAcc:",accD," ",round((nowE-prevE).total_seconds()/3600,1),"hours")
                     rounds+=1
-                if epoch+1>=min_epochs and rounds>=3:
+                if epoch+1>=min_epochs and rounds>=2:
                     break
 
             prevT=nowT
@@ -252,7 +244,7 @@ if options.testfile is not None:
         testloader=torch.utils.data.DataLoader(testDataGoldTensor,batch_size=batch)
         data=None
 
-        NNet=DeepNet(vsize,lstm_hidden,feedf_hidden,repLayer,classes)
+        NNet=DeepNet(vsize,lstm_hidden,repLayer,classes)
         NNet.load_state_dict(torch.load(m0th))
         NNet.eval()
         if torch.cuda.is_available():
