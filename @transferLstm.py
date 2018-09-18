@@ -22,18 +22,17 @@ parser.add_option("-r","--test",dest="testfile",
                   help="test ssv file",metavar="<test_file>")
 (options,args)=parser.parse_args()
 
-mothNster_path='m@ths/2014wiki_50occ.dict.w50.wikipedia+.d300.w2v.%LSTM.e9.acc16.44'
+mothNster_path='m@ths/2014wiki_50occ.dict.w50.wikipedia+.d300.w2v.%lstm'
 
 fword=31
 lword=71
 num_layers=1
-# dclasses=1066509 #for 10occ
 dclasses=247415 #for 50occ
 lstm_hidden=2048
 feedf_hidden=256
 ctx_layer=512
 batch=256
-ilr=1e-3
+ilr=1e-4
 dp=0.2
 min_epochs=10
 max_epochs=300
@@ -42,25 +41,18 @@ gpuN=2
 sequence=40
 
 class DeepNet(torch.nn.Module):
-    def __init__(self,input_size,lstm_hidden_size,feedf_hidden_size,rep_size,num_classes):
+    def __init__(self,input_size,lstm_hidden_size,rep_size,num_classes):
         super(DeepNet,self).__init__()
         self.input_size=input_size
         self.lstm_hidden_size=lstm_hidden_size
-        self.feedf_hidden_size=feedf_hidden_size
         self.rep_size=rep_size
         self.lstm=torch.nn.LSTM(input_size,lstm_hidden_size,num_layers,dropout=dp,batch_first=True)
         self.projection=torch.nn.Linear(lstm_hidden_size,rep_size)
-        self.feedf = torch.nn.Sequential(
-            torch.nn.Linear(rep_size, feedf_hidden_size),
-            torch.nn.ReLU(),
-            torch.nn.Dropout(dp),
-            torch.nn.Linear(feedf_hidden_size, feedf_hidden_size),
-            torch.nn.ReLU(),
-            torch.nn.Linear(feedf_hidden_size,num_classes))
+        self.toclass=torch.nn.Linear(rep_size,num_classes)
     def forward(self,x):
         out,_=self.lstm(x)
         rep=self.projection(out[:,-1,:])
-        out=self.feedf(rep)
+        out=self.toclass(rep)
         return out,rep
 
 class ShallowNet(torch.nn.Module):
@@ -139,7 +131,7 @@ if options.vectfile is not None:
     w2vTensor=numpy.append([smooth],numpy.loadtxt(options.vectfile,skiprows=0,usecols=range(1,vsize+1),dtype=float,ndmin=2),axis=0)
     w2vTensor=torch.from_numpy(w2vTensor).type(torch.FloatTensor)
 
-    mothNster=DeepNet(vsize,lstm_hidden,feedf_hidden,ctx_layer,dclasses)
+    mothNster=DeepNet(vsize,lstm_hidden,ctx_layer,dclasses)
     mothNster.load_state_dict(torch.load(mothNster_path, map_location=lambda storage, location: storage))
     # mothNster.load_state_dict(torch.load(mothNster_path))
 
