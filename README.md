@@ -79,10 +79,10 @@ Note that Word Expert models are named as moths (or m@ths) in the code.
 
  **m@th.[deep].pl**: Perl script for preproccesing Wikipedia, it
  creates the training dataset, abd used for training and testing the
- "Word Expert Models" (or moths).
+ "Word Expert Models" (a.k.a. moths).
 
  **m@thNster.[deep].pl**: Perl script for preproccesing of the data,
- training and testing the "Single Model" or ([moth]nster).
+ training and testing the "Single Model" or (a.k.a. [moth]nster).
 
  **m@th.mxr.pl**: Perl script to mix the results of the "Word Expert
  Models" (original and augmented versions)
