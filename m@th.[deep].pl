@@ -80,6 +80,7 @@ sub init
     $tag .= ".orig" unless $AUGMENTED;
     $tag .= ".aug" if $AUGMENTED;
     $path = "$PATH" if $PATH;
+    mkdir $path."m\@th/";
     mkdir $path."results/";
     mkdir $path."debug/";
     mkdir $path."ssv/";
