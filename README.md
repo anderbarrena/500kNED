@@ -2,7 +2,7 @@
 This repository provides code to replicate the experiments from:
 
 - Ander Barrena, Aitor Soroa and Eneko Agirre. **Learning text representations for 500K classification tasks on Named
-Entity Disambiguation**. In the SIGNLL Conference on Computational Natural Language Learning CONLL 2018.
+Entity Disambiguation**. In the SIGNLL Conference on Computational Natural Language Learning CONLL 2018. http://ixa.si.ehu.es/sites/default/files/dokumentuak/11581/conll2018.pdf
 
 Download data from:
 
