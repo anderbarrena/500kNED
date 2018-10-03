@@ -4,7 +4,9 @@ This repository provides code to replicate the experiments from:
 - Ander Barrena, Aitor Soroa and Eneko Agirre. **Learning text representations for 500K classification tasks on Named
 Entity Disambiguation**. In the SIGNLL Conference on Computational Natural Language Learning CONLL 2018. http://ixa.si.ehu.es/sites/default/files/dokumentuak/11581/conll2018.pdf
 
-Download data from:
+The initial prototype of the word expert model was implemented during november of the 2016, close to the release of the single "Moth into Flame" by Metallica. Hence, the Word Expert models are named as **m@th**s (moths).
+
+Download the data from:
 
   http://ixa2.si.ehu.es/500kNED-download/source.tar.gz Unzip the
   data in the main folder. Contains dictionary, vector and cluster
@@ -13,8 +15,6 @@ Download data from:
   http://ixa2.si.ehu.es/500kNED-download/entities.tar.gz Unzip the
   data in ssv/train/ folder. Contains all the preprocessed contexts for
   all the entities in Wikipedia (06Nov2014 dump)
-
-The initial prototype of the word expert model was implemented during november of the 2016, close to the release of the single "Moth into Flame" by Metallica. Hence, the Word Expert models are named as **m@th**s (moths) in the code. 
 
 # **Bash Scripts**
 
