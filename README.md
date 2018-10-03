@@ -71,7 +71,7 @@ Download the data from:
 
  **01-do.mix.KB.sh**: the script mixes original and augmented model
  results of Word Experts, and removes those entities not belonging to
- Knowledge Bases (AidaMeans and TacKB). Then evals the system output
+ a Knowledge Base (AidaMeans or TacKB). Then evals the system output
  against the gold standard. Eval results are stored in results/
  folder.
 
