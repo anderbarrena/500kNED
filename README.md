@@ -1,19 +1,10 @@
-**                                                             88           
-                                                         ,d    88           
-                                                         88    88           
-                         88,dPYba,,adPYba,   ,adPPYba, MM88MMM 88,dPPYba,   
-                         88P    "88"    "8a a8"     "8a  88    88P     "8a  
-                         88      88      88 8b   0   d8  88    88       88  
-                         88      88      88 "8a,   ,a8"  88,   88       88  
-                         88      88      88   "YbbdP"    "Y888 88       88  
-**
 
 This repository provides code to replicate the experiments from:
 
 - Ander Barrena, Aitor Soroa and Eneko Agirre. **Learning text representations for 500K classification tasks on Named
 Entity Disambiguation**. In the SIGNLL Conference on Computational Natural Language Learning CONLL 2018. http://ixa.si.ehu.es/sites/default/files/dokumentuak/11581/conll2018.pdf
 
-The initial prototype of the word expert model was implemented during november of the 2016, close to the release of the single "Moth into Flame" by Metallica. Hence, the Word Expert models are named as **m@th**s (moths).
+The initial prototype of the word expert model was implemented during november of the 2016, close to the release of the single "Moth into Flame" by Metallica. That's why the Word Expert models are named as **m@th**s (moths).
 
 Download the data from:
 
