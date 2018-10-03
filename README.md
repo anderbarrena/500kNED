@@ -78,7 +78,7 @@ Download the data from:
 # **Perl Scripts** 
 
  **m@th.[deep].pl**: Perl script for preproccesing Wikipedia, it
- creates the training dataset, abd used for training and testing the
+ creates the training dataset used for training and testing the
  "Word Expert Models" (a.k.a. moths).
 
  **m@thNster.[deep].pl**: Perl script for preproccesing of the data,
