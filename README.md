@@ -14,7 +14,7 @@ Download data from:
   data in ssv/train/ folder. Contains all the preprocessed contexts for
   all the entities in Wikipedia (06Nov2014 dump)
 
-Note that Word Expert models are named as moths (or m@ths) in the code. 
+The initial prototype of the word expert model was implemented during november of the 2016, close to the release of the single "Moth into Flame" by Metallica. Hence, the Word Expert models are named as **m@th**s (moths) in the code. 
 
 # **Bash Scripts**
 
@@ -30,7 +30,7 @@ Note that Word Expert models are named as moths (or m@ths) in the code.
  mentions. If you want to create the 500K full dataset, uncomment the
  last lines in the script. This may take so much time, we recommend to
  divide the dictionary file and run many processes in
- parallel. Training input files stored in ssv/train/mentions/
+ parallel. Training input files are stored in ssv/train/mentions/
 
    The trainining data is stored as:
    * one file per mention in the dictionary
