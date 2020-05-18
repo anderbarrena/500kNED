@@ -41,7 +41,7 @@ sub read
     my $cf = 0;
     foreach my $file (@$arg)
     {
-	open(Fitx,"$file") || die;
+	open(Fitx,"$file") || die "Cannot open $file";
 	binmode Fitx, ":utf8";
 	while (<Fitx>)
 	{
