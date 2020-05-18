@@ -127,10 +127,10 @@ if options.trainfile is not None:
         trainD,devD,trainG,devG=train_test_split(D,G,test_size=sample)
         D=None
         G=None
-        devDataTensor=to_avg(torch.from_numpy(devD).type(torch.IntTensor))
-        devGoldTensor=torch.from_numpy(devG).type(torch.IntTensor)
-        trainDataTensor=to_avg(torch.from_numpy(trainD).type(torch.IntTensor))
-        trainGoldTensor=torch.from_numpy(trainG).type(torch.IntTensor)
+        devDataTensor=to_avg(torch.from_numpy(devD).type(torch.LongTensor))
+        devGoldTensor=torch.from_numpy(devG).type(torch.LongTensor)
+        trainDataTensor=to_avg(torch.from_numpy(trainD).type(torch.LongTensor))
+        trainGoldTensor=torch.from_numpy(trainG).type(torch.LongTensor)
         trainDataGoldTensor=torch.utils.data.TensorDataset(trainDataTensor,trainGoldTensor)
         devDataGoldTensor=torch.utils.data.TensorDataset(devDataTensor,devGoldTensor)
         devloader=torch.utils.data.DataLoader(devDataGoldTensor,batch_size=batch)
@@ -167,7 +167,7 @@ if options.trainfile is not None:
                     tar=to_var(y)
                     tar_pred=NNet(inp)
                     loss=loss_fn(tar_pred,tar-1)
-                    lossD=lossD+loss.data[0]
+                    lossD=lossD+loss.item()
                     T=T+1
                     NNet.zero_grad()
                     loss.backward()
@@ -184,13 +184,14 @@ if options.trainfile is not None:
                     for x in predTensorV:
                         maxA,a=torch.max(x,0)
                         b=dtar[row]
-                        if (a.data[0]==b.data[0]-1):
+                        if (a.item()==b.item()-1):
                             correct+=1 
                         row+=1
                         all+=1
                 accD=round(100*(float(correct)/(all)),2)
                 if (accD_best<=accD and lossD_best>=lossD):
                     ep=epoch
+                    os.makedirs(os.path.dirname(m0th), exist_ok=True)
                     torch.save(NNet.state_dict(),m0th+str(r))
                     rounds=0
                     accD_best=accD
@@ -226,7 +227,7 @@ if options.testfile is not None:
         classes=int(len(prior))
         data=numpy.loadtxt(ssv,skiprows=1,usecols=range(fword,lword),dtype=int,ndmin=2)
         ids=numpy.loadtxt(ssv,skiprows=1,usecols=(0,),dtype=str,ndmin=1)
-        inputs=to_var(to_avg(torch.from_numpy(data).type(torch.IntTensor)))
+        inputs=to_var(to_avg(torch.from_numpy(data).type(torch.LongTensor)))
         data=None
 
         NNet=DeepNet(vsize,hidden,classes)
@@ -243,7 +244,7 @@ if options.testfile is not None:
             for val in targets_pred.data[k]:
                 sys.stdout.write(" ")
                 sys.stdout.flush()
-                sys.stdout.write(str(val))
+                sys.stdout.write(f'{val.item():.5f}')
                 sys.stdout.flush()
             print()
     
